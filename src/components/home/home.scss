@@ -1,0 +1,59 @@
+@import '../../scss/custom';
+
+.Home {
+  height: 100%;
+  overflow: hidden;
+
+  .home-bg-filter {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background: radial-gradient(
+      circle,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(77, 15, 0, 0.25) 100%
+    );
+  }
+
+  .home-container {
+    height: 100%;
+    padding-bottom: 3%;
+
+    .home-col {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      height: 100%;
+      width: 100%;
+
+      img {
+        flex: 0 auto;
+        max-width: 100%;
+        max-height: 80%;
+        object-fit: contain;
+        margin-bottom: 1rem;
+        @media (max-width: 699px) {
+          content: (url('./home_bg_mobile.jpg'));
+        }
+        @media (min-width: 700px) {
+          content: url('./home_bg.jpg');
+        }
+      }
+
+      h2 {
+        color: $light;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 0.5rem;
+      }
+      p {
+        color: $orange;
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+}
