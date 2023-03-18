@@ -26,13 +26,12 @@ app.get("/api/heroes/:id", async (req, res) => {
 
 // redirect to homepage
 app.get('*', (req, res) => {
-    res.sendFile((__dirname, '../darkest/build', 'index.html'));
+    res.sendFile((__dirname, './darkest/build', 'index.html'));
 });
 
 app.listen(PORT, () => {
     console.log('Listening on ' + PORT + '..');
-})
-
+});
 
 // get heroes from db
 async function getHeroes() {
@@ -42,7 +41,7 @@ async function getHeroes() {
         arr.push({ id: doc.id, name: doc.data().name });
     });
     return arr;
-}
+};
 
 // get stats of a hero from db
 async function getStatsHero(id) {
@@ -60,4 +59,4 @@ async function getStatsHero(id) {
         }
         return stats;
     }
-}
+};
