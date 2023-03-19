@@ -10,26 +10,28 @@ import leftArrow from './left-arrow.png';
 function Hero(props) {
     const [heroName, setHeroName] = useState('Loading..');
     const [resistances, setResistances] = useState({
-        bleed: "", blight: "", deathblow: "", debuff: "",
-        disease: "", move: "", stun: "", trap: ""
+        bleed: "..", blight: "..", deathblow: "..", debuff: "..",
+        disease: "", move: "..", stun: "..", trap: ".."
     });
     const [resolve1, setResolve1] = useState({
-        crit: "", dmg: "", dodge: "", maxhp: "", spd: ""
+        crit: "..", dmg: "..", dodge: "..", maxhp: "..", spd: ".."
     });
     const [resolve2, setResolve2] = useState({
-        crit: "", dmg: "", dodge: "", maxhp: "", spd: ""
+        crit: "..", dmg: "..", dodge: "..", maxhp: "..", spd: ".."
     });
     const [resolve3, setResolve3] = useState({
-        crit: "", dmg: "", dodge: "", maxhp: "", spd: ""
+        crit: "..", dmg: "..", dodge: "..", maxhp: "..", spd: ".."
     });
     const [resolve4, setResolve4] = useState({
-        crit: "", dmg: "", dodge: "", maxhp: "", spd: ""
+        crit: "..", dmg: "..", dodge: "..", maxhp: "..", spd: ".."
     });
     const [resolve5, setResolve5] = useState({
-        crit: "", dmg: "", dodge: "", maxhp: "", spd: ""
+        crit: "..", dmg: "..", dodge: "..", maxhp: "..", spd: ".."
     });
     const [abilities, setAbilities] = useState({
-        a1: "", a2: "", a3: "", a4: "", a4: "", a5: "", a6: "", a7: ""
+        a1: "laoding..", a2: "laoding..", a3: "laoding..",
+        a4: "laoding..", a4: "laoding..", a5: "laoding..",
+        a6: "laoding..", a7: "laoding.."
     });
 
     const lg = props.lg;
@@ -78,16 +80,22 @@ function Hero(props) {
                 </div>
 
                 <div className='abilities'>
-                    <Abilities abilities={abilities} />
+                    {abilities &&
+                        <Abilities abilities={abilities} />
+                    }
                 </div>
 
                 <div className='content'>
                     <div className='content-left'>
-                        <Levels resolve1={resolve1} resolve2={resolve2} resolve3={resolve3} resolve4={resolve4} resolve5={resolve5} />
+                        {resolve1 && resolve2 && resolve3 && resolve4 && resolve5 &&
+                            <Levels resolve1={resolve1} resolve2={resolve2} resolve3={resolve3} resolve4={resolve4} resolve5={resolve5} />
+                        }
                     </div>
 
                     <div className='content-right'>
-                        <Resistances resistances={resistances} />
+                        {resistances &&
+                            <Resistances resistances={resistances} />
+                        }
                     </div>
 
                 </div>
