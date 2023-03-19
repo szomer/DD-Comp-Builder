@@ -20,20 +20,27 @@ function Stats(props) {
 
     return (<div className="Stats">
 
-        <div className='hero-container'>
-            <h2>Heroes</h2>
+        <div className='stats-container'>
 
-            <swiper-container navigation="true" scrollbar="false" pagination="false" slides-per-view="3" speed="500" loop="true" css-mode="true">
+
+            <swiper-container navigation="true" scrollbar="false" pagination="false" slides-per-view="3" speed="300" loop="true" css-mode="true">
+
+
                 {heroes.map((item) => {
-                    return <swiper-slide><Link to={'/stats/' + item.id}>
+                    return <swiper-slide>
                         <div className='hero'>
 
-                            <img src={lg[item.id]} />
+                            <Link to={'/stats/' + item.id}>
+                                <img src={lg[item.id]} />
+                            </Link>
+
                             <h3>{item.name}</h3>
 
-                        </div></Link>
+                        </div>
                     </swiper-slide>
                 })}
+
+
             </swiper-container>
         </div>
     </div >)

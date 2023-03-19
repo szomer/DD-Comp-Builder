@@ -2,6 +2,7 @@
 
 .Stats {
   background-image: url(./stats_bg.jpg);
+  background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center bottom;
@@ -12,42 +13,98 @@
   align-content: center;
   justify-content: center;
 
-  .hero-container {
+  @media (min-width: 800px) {
+    .stats-container {
+      padding: 5% 10%;
+      .hero {
+        padding: 15%;
+        a {
+          height: 500px;
+
+          img {
+            padding-top: 15%;
+          }
+        }
+        h3 {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 799px) {
+    .stats-container {
+      padding: 15% 0%;
+      .hero {
+        padding: 0;
+
+        a {
+          height: 500px;
+
+          img {
+            padding-top: 50%;
+            padding-bottom: 20%;
+          }
+        }
+        h3 {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  .stats-container {
     height: 100%;
     width: 100%;
-    padding: 2% 13%;
-
-    h2 {
-      color: $light;
-      text-align: center;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
     .hero {
-      height: 600px;
+      animation: fadein 1s;
       width: 100%;
-      padding: 10%;
+      a {
+        transition: ease-in-out 0.4s;
+        text-decoration: none;
+        width: 100%;
+        background: linear-gradient(
+          180deg,
+          rgba(189, 25, 10, 0.2) 30%,
+          rgba(189, 25, 10, 1) 90%
+        );
+        border-radius: 8px;
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: center;
 
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-      justify-content: center;
-
-      img {
-        height: 100%;
-        object-fit: cover;
-        background-color: black;
-        border: 1px solid $orange;
-        border-radius: 5px;
+        img {
+          width: 100%;
+          object-fit: cover;
+          border: 5px solid #000000;
+        }
       }
+      a:hover {
+        animation: fadebg 0.7s;
+        background-color: $orange;
+      }
+      @keyframes fadebg {
+        0% {
+          background: linear-gradient(
+            180deg,
+            rgba(189, 25, 10, 0.2) 30%,
+            rgba(189, 25, 10, 1) 90%
+          );
+        }
+        100% {
+          background-color: $orange;
+        }
+      }
+
       h3 {
-        color: $orange;
-        margin-top: 0.5rem;
+        color: $light;
+        margin-top: 0.3rem;
+        padding: 0.4rem;
         text-align: center;
-        font-size: 1.3rem;
+        background-color: #0c0c0c;
+        border-radius: 2px;
+        border: 5px solid #000000;
       }
     }
   }

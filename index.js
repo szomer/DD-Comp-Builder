@@ -20,7 +20,7 @@ app.get("/api/heroes", async (req, res) => {
 // api get stats of a hero
 app.get("/api/heroes/:id", async (req, res) => {
     const id = req.params.id;
-    const stats = await getStatsHero(id);
+    const stats = await getStats(id);
     res.json((stats))
 });
 
@@ -44,19 +44,38 @@ async function getHeroes() {
 };
 
 // get stats of a hero from db
-async function getStatsHero(id) {
+// async function getStatsHero(id) {
+//     const doc = await db.collection('stats').doc(id).get();
+//     if (!doc.exists) {
+//         return;
+//     } else {
+//         const stats = [
+//             { maxhp: doc.data().maxhp },
+//             { resistances: doc.data().resistances },
+//             { dodge: doc.data().dodge },
+//             { spd: doc.data().spd },
+//             { crit: doc.data().crit },
+//             { dmg: doc.data().dmg }
+//         ];
+//         return stats;
+//     }
+// };
+
+async function getResolve(id, level) {
+    const collect = 'resolve' + level;
+    const doc = await db.collection(collect).doc(id).get();
+    if (!doc.exists) {
+        return;
+    } else {
+        return doc.data();
+    }
+}
+
+async function getStats(id) {
     const doc = await db.collection('stats').doc(id).get();
     if (!doc.exists) {
         return;
     } else {
-        const stats = {
-            maxhp: doc.data().maxhp,
-            resistances: doc.data().resistances,
-            dodge: doc.data().dodge,
-            spd: doc.data().spd,
-            crit: doc.data().crit,
-            dmg: doc.data().dmg
-        }
-        return stats;
+        return doc.data();
     }
-};
+}

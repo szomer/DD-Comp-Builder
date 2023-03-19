@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 function Header() {
     return (<div className="Header">
-        <Navbar collapseOnSelect expand="md" bg="dark" variant="dark" fixed='top'>
+        <Navbar collapseOnSelect expand="md" variant="dark" fixed='top'>
             <Container>
                 <Navbar.Brand as={Link} to="/">DD Comp Builder</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -17,7 +17,7 @@ function Header() {
                     </div>
                     <Nav >
                         <Nav.Link as={Link} to="/builder">Comp Builder</Nav.Link>
-                        <Nav.Link as={Link} to="/stats">Heroes Stats</Nav.Link>
+                        <Nav.Link as={Link} to="/stats">Heroes</Nav.Link>
                         <Nav.Link as={Link} to="/about">More</Nav.Link>
 
                     </Nav>

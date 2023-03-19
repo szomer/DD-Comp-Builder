@@ -10,13 +10,14 @@ import { useEffect, useState } from 'react';
 import { icons } from './icons';
 import { sm } from './sm';
 import { lg } from './lg';
+import Hero from '../stats/hero/Hero';
 
 function App() {
 
   const [heroes, setHeroes] = useState([]);
 
   useEffect(() => {
-    fetch("/api/heroes")
+    fetch("/api/heroes/")
       .then((res) => res.json())
       .then((data) => {
         setHeroes(data);
@@ -31,6 +32,7 @@ function App() {
         <Route path='/stats' element={<Stats heroes={heroes} lg={lg} />} />
         <Route path='/builder' element={<Builder heroes={heroes} icons={icons} sm={sm} />} />
         <Route path='/about' element={<About />} />
+        <Route path='/stats/:id' element={<Hero heroes={heroes} lg={lg} />} />
         <Route path='*' element={<Error />} />
       </Routes>
     </div>
