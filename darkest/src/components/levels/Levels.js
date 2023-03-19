@@ -9,6 +9,7 @@ function Levels(props) {
     const resolve4 = props.resolve4;
     const resolve5 = props.resolve5;
 
+
     return (<div className='Levels'>
 
         <Table size="sm">

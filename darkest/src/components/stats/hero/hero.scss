@@ -81,7 +81,6 @@
     align-items: center;
     color: $light;
     position: relative;
-
     .return-button {
       position: absolute;
       top: 3%;
@@ -90,12 +89,10 @@
         width: 30px;
       }
     }
-
     .title {
       color: $orange;
       text-shadow: 1px 1px 0px #000;
     }
-
     .title,
     .abilities,
     .content-left,
@@ -103,7 +100,6 @@
       border-radius: 5px;
       background-color: #00000097;
     }
-
     .content {
       width: 100%;
       display: flex;

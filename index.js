@@ -47,8 +47,9 @@ async function getHeroStats(id) {
     const resolve3 = await getResolve(id, 3);
     const resolve4 = await getResolve(id, 4);
     const resolve5 = await getResolve(id, 5);
+    const abilities = await getAbilities(id);
 
-    return [stats, resolve1, resolve2, resolve3, resolve4, resolve5];
+    return [stats, resolve1, resolve2, resolve3, resolve4, resolve5, abilities];
 }
 
 async function getResolve(id, level) {
@@ -69,3 +70,13 @@ async function getStats(id) {
         return doc.data();
     }
 }
+
+async function getAbilities(id) {
+    const doc = await db.collection('abilities').doc(id).get();
+    if (!doc.exists) {
+        return;
+    } else {
+        return doc.data();
+    }
+}
+

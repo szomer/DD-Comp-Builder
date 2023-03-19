@@ -8,7 +8,7 @@ import Abilities from '../../abilities/Abilities';
 import leftArrow from './left-arrow.png';
 
 function Hero(props) {
-    const [heroName, setHeroName] = useState('');
+    const [heroName, setHeroName] = useState('Loading..');
     const [resistances, setResistances] = useState({
         bleed: "", blight: "", deathblow: "", debuff: "",
         disease: "", move: "", stun: "", trap: ""
@@ -27,7 +27,10 @@ function Hero(props) {
     });
     const [resolve5, setResolve5] = useState({
         crit: "", dmg: "", dodge: "", maxhp: "", spd: ""
-    })
+    });
+    const [abilities, setAbilities] = useState({
+        a1: "", a2: "", a3: "", a4: "", a4: "", a5: "", a6: "", a7: ""
+    });
 
     const lg = props.lg;
     const { id } = useParams();
@@ -50,6 +53,7 @@ function Hero(props) {
                 setResolve3(data[3]);
                 setResolve4(data[4]);
                 setResolve5(data[5]);
+                setAbilities(data[6]);
             });
     }, []);
 
@@ -74,7 +78,7 @@ function Hero(props) {
                 </div>
 
                 <div className='abilities'>
-                    <Abilities />
+                    <Abilities abilities={abilities} />
                 </div>
 
                 <div className='content'>
