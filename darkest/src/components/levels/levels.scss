@@ -1,0 +1,16 @@
+@import '../../scss/custom';
+
+.Levels {
+  width: 360px;
+  td,
+  th {
+    color: $light;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.4rem 0.3rem;
+  }
+
+  .resolve {
+    margin-right: 0.3rem;
+  }
+}

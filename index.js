@@ -20,14 +20,10 @@ app.get("/api/heroes", async (req, res) => {
 // api get stats of a hero
 app.get("/api/heroes/:id", async (req, res) => {
     const id = req.params.id;
-    const stats = await getStats(id);
+    const stats = await getHeroStats(id);
     res.json((stats))
 });
 
-// redirect to homepage
-app.get('*', (req, res) => {
-    res.sendFile((__dirname, './darkest/build', 'index.html'));
-});
 
 app.listen(PORT, () => {
     console.log('Listening on ' + PORT + '..');
@@ -43,23 +39,17 @@ async function getHeroes() {
     return arr;
 };
 
-// get stats of a hero from db
-// async function getStatsHero(id) {
-//     const doc = await db.collection('stats').doc(id).get();
-//     if (!doc.exists) {
-//         return;
-//     } else {
-//         const stats = [
-//             { maxhp: doc.data().maxhp },
-//             { resistances: doc.data().resistances },
-//             { dodge: doc.data().dodge },
-//             { spd: doc.data().spd },
-//             { crit: doc.data().crit },
-//             { dmg: doc.data().dmg }
-//         ];
-//         return stats;
-//     }
-// };
+// get all the stats of a hero
+async function getHeroStats(id) {
+    const stats = await getStats(id);
+    const resolve1 = await getResolve(id, 1);
+    const resolve2 = await getResolve(id, 2);
+    const resolve3 = await getResolve(id, 3);
+    const resolve4 = await getResolve(id, 4);
+    const resolve5 = await getResolve(id, 5);
+
+    return [stats, resolve1, resolve2, resolve3, resolve4, resolve5];
+}
 
 async function getResolve(id, level) {
     const collect = 'resolve' + level;
