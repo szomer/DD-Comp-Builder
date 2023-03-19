@@ -14,40 +14,64 @@
   justify-content: center;
   overflow: hidden;
 
-  .hero-left {
-    animation: slideRight 0.6s;
-    flex: 1;
-    background: linear-gradient(
-      180deg,
-      rgba(189, 25, 10, 0.2) 30%,
-      rgba(189, 25, 10, 1) 90%
-    );
-    border-right: 5px solid #000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  @media (max-width: 799px) {
+    .hero-left {
+      display: none;
+    }
+    .hero-right {
+      justify-content: flex-start;
+      .title,
+      .abilities,
+      .content,
+      .content-right,
+      .content-left {
+        margin: 1rem 0rem;
+        padding: 0.5rem;
+      }
+      .content {
+        flex-direction: column;
+      }
+    }
+  }
+  @media (min-width: 800px) {
+    .hero-left {
+      animation: slideRight 0.6s;
+      flex: 1;
+      background: linear-gradient(
+        180deg,
+        rgba(189, 25, 10, 0.2) 30%,
+        rgba(189, 25, 10, 1) 90%
+      );
+      border-right: 5px solid #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 100%;
+      }
+    }
 
-    img {
-      width: 100%;
+    .hero-right {
+      flex: 3;
+      justify-content: flex-end;
+      .title,
+      .abilities,
+      .content {
+        margin: 2rem;
+        padding: 1rem;
+      }
+      .content {
+        flex-direction: row;
+      }
     }
   }
 
   .hero-right {
-    flex: 3;
-
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
     color: $light;
-
-    .title,
-    .abilities,
-    .content {
-      margin: 2rem;
-      padding: 1rem;
-    }
     .title,
     .abilities,
     .content-right,
@@ -64,12 +88,10 @@
     .content {
       width: 100%;
       display: flex;
-      flex-direction: row;
       justify-content: space-evenly;
       align-items: center;
       .content-left {
       }
-
       .content-right {
       }
     }
