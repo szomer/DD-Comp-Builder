@@ -81,7 +81,10 @@ function Hero(props) {
 
                 <div className='abilities'>
                     {abilities &&
-                        <Abilities abilities={abilities} />
+                        <>
+                            <h3>Hero Abilities</h3>
+                            <Abilities abilities={abilities} />
+                        </>
                     }
                 </div>
 
@@ -94,7 +97,10 @@ function Hero(props) {
 
                     <div className='content-right'>
                         {resistances &&
-                            <Resistances resistances={resistances} />
+                            <>
+                                <h3>Resistances</h3>
+                                <Resistances resistances={resistances} />
+                            </>
                         }
                     </div>
 

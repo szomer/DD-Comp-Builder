@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './builder.scss';
 import List from './list/List';
 import Abilities from '../abilities/Abilities';
@@ -6,8 +6,10 @@ import Resistances from '../resistances/Resistances';
 import Comp from './comp/Comp';
 
 function Builder(props) {
-    const [heroId, setHeroId] = useState();
-    const [heroName, setHeroName] = useState();
+    const [hero, setHero] = useState({
+        id: "",
+        name: ""
+    });
     const [resistances, setResistances] = useState({
         bleed: "", blight: "", deathblow: "", debuff: "",
         disease: "", move: "", stun: "", trap: ""
@@ -25,11 +27,20 @@ function Builder(props) {
     const icons = props.icons;
     const images = props.sm;
 
-    function onListSelect(id) {
-        fetch("/api/heroes/" + id)
+    useEffect(() => {
+        onListSelect("00");
+    }, []);
+
+    // Get the stats of hero
+    async function onListSelect(heroId) {
+        await fetch("/api/heroes/" + heroId)
             .then((res) => res.json())
             .then((data) => {
-                setHeroName(data[0].hero)
+                setHero({
+                    id: heroId,
+                    name: data[0].hero
+                });
+
                 setResistances(() => {
                     return {
                         bleed: data[0].bleed, blight: data[0].blight,
@@ -39,62 +50,65 @@ function Builder(props) {
                     }
                 });
                 setAbilities(data[6]);
-                setHeroId(id);
+
+            }).catch(() => {
+                setHero({
+                    id: "",
+                    name: ""
+                })
+                setResistances({
+                    bleed: "", blight: "", deathblow: "", debuff: "",
+                    disease: "", move: "", stun: "", trap: ""
+                });
+                setAbilities({
+                    a1: "", a2: "", a3: "", a4: ".", a4: "", a5: "", a6: "", a7: ""
+                });
             });
     }
 
+    // Add hero to builder
     function heroAdd(position) {
-        console.log('add hero ', heroId, ' to position ', position);
-        console.log('id', heroId);
-        console.log('name', heroName);
-        console.log('img', images[heroId]);
-
-
-        setCurrentHeroes(old => {
-            old[position] = {
-                id: heroId, name: heroName, img: images[heroId]
-            }
-            return old;
-        })
-
-        console.log(currentHeroes);
+        var arr = [...currentHeroes];
+        arr[position] = {
+            id: hero.id, name: hero.name, img: images[hero.id]
+        };
+        setCurrentHeroes(arr);
     }
 
+    // Remove hero from builder
     function heroRemove(position) {
-        console.log('handle remove', position);
-        setCurrentHeroes(old => {
-            old[position] = {
-                id: "", name: "", img: ""
-            }
-            return old;
-        })
+        var arr = [...currentHeroes];
+        arr[position] = {
+            id: "", name: "", img: ""
+        };
+        setCurrentHeroes(arr);
     }
 
 
     return (<div className="Builder">
-
         <div className="builder-container">
-            <Comp heroAdd={heroAdd} heroRemove={heroRemove} currentHeroes={currentHeroes} />
+            <h2>Build Your Composition</h2>
+            {currentHeroes &&
+                <Comp heroAdd={heroAdd} heroRemove={heroRemove} currentHeroes={currentHeroes} />
+            }
+        </div>
 
+        <div className="hero-stats-container">
+            {hero.name ?
+                <h2>{hero.name}</h2> :
+                <h2>Start by selecting a Hero!</h2>
+            }
+            {abilities.a1 && resistances.bleed &&
+                <div className='stats-container'>
+                    <Abilities abilities={abilities} />
+                    <Resistances resistances={resistances} />
+                </div>
+            }
         </div>
 
         <div className="heroes-list-container">
             <List onHeroClicked={onListSelect} heroes={heroes} icons={icons} />
         </div>
-
-        <div className="stats-container">
-            {heroName ?
-                <h2>{heroName}</h2> :
-                <h2>Start by selecting a Hero!</h2>
-            }
-            {abilities.a1 &&
-                <Abilities abilities={abilities} />
-            }
-            {resistances.bleed &&
-                <Resistances resistances={resistances} />
-            }
-        </div>
-
     </div>)
 }
 

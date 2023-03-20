@@ -13,8 +13,6 @@ function Resistances(props) {
 
     return (<div className="Resistances">
 
-        <h3>Resistances</h3>
-
         <div className='stat-container'>
             <div className='stat'>
                 <img src={bleedImg} />
@@ -28,7 +26,7 @@ function Resistances(props) {
             </div>
             <div className='stat'>
                 <img src={deathblowImg} />
-                <p>Death Blow</p>
+                <p>Death blow</p>
                 <p>{resistances.deathblow}</p>
             </div>
             <div className='stat'>

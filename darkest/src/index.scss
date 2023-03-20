@@ -8,6 +8,13 @@ body,
   width: 100%;
 }
 
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #000;
+}
+
 @keyframes fadein {
   0% {
     opacity: 0;

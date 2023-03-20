@@ -1,6 +1,17 @@
 @import '../../scss/custom';
 
-.Header {
-  border-bottom: 1px solid rgb(24, 24, 24);
-  overflow: hidden;
+@media (min-width: 768px) {
+  .Header {
+    border-bottom: 1px solid rgb(24, 24, 24);
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 767px) {
+  .Header,
+  .container,
+  .navbar {
+    width: 100%;
+    background-color: black;
+  }
 }

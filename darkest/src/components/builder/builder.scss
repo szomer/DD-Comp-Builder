@@ -1,37 +1,97 @@
 @import '../../scss/custom';
 
+@media (max-width: 799px) {
+  .Builder {
+    h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
+    }
+    .stats-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      padding: 10px;
+
+      h2 {
+        font-size: 1.3rem;
+        color: $orange;
+      }
+      .Abilities {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  .Builder {
+    h2 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .stats-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: nowrap;
+
+      h2 {
+        font-size: 1.3rem;
+        color: $orange;
+      }
+
+      .Abilities {
+        max-width: 480px;
+        height: 190px;
+        padding-right: 10px;
+      }
+    }
+  }
+}
+
 .Builder {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   height: 100%;
-  background-color: grey;
-
+  background: url('builder_bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  color: $light;
+  overflow-y: auto;
+  overflow-x: hidden;
   .builder-container,
   .heroes-list-container,
-  .stats-container {
-    padding: 2%;
-    margin: 2%;
+  .hero-stats-container {
+    padding: 5px;
+    margin: 5px;
     border-radius: 5px;
-    background-color: #00000097;
+    background-color: #111111c4;
+    box-shadow: 0px 0px 10px #000;
   }
 
   .builder-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    h2 {
+      font-size: 1.3rem;
+    }
   }
 
   .heroes-list-container {
   }
 
-  .stats-container {
+  .hero-stats-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    h2 {
-      font-size: 1.4rem;
-      color: $light;
-    }
   }
 }

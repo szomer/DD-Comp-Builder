@@ -3,10 +3,6 @@
 .Resistances {
   width: 360px;
 
-  h3 {
-    font-size: 1.4rem;
-  }
-
   .stat-container {
     display: flex;
     flex-direction: row;
@@ -23,6 +19,12 @@
       p {
         margin: 0.1rem 0.2rem;
         padding: 0;
+      }
+
+      @media (max-width: 800px) {
+        font-size: 0.9rem;
+      }
+      @media (min-width: 800px) {
         font-size: 1rem;
       }
     }

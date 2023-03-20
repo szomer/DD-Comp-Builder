@@ -1,4 +1,144 @@
 @import '../../../scss/custom';
 
+@media (max-width: 799px) {
+  .Comp {
+    .hero-container {
+      height: 300px;
+      margin: 0;
+      border-bottom: 3px solid #000;
+      border-top: 3px solid #000;
+      border-right: 1px solid #000;
+      border-left: 1px solid #000;
+      .hero {
+        width: 90px;
+        img {
+          padding-bottom: 0.5rem;
+          width: 90px;
+          height: 100%;
+          overflow: hidden;
+          object-fit: cover;
+        }
+        p {
+          font-size: 0.7rem;
+        }
+      }
+      .button-container {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        .add,
+        .remove {
+          button {
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  .Comp {
+    .hero-container {
+      height: 300px;
+      margin: 0.5rem;
+      .hero {
+        width: 200px;
+        padding-bottom: 0.5rem;
+        img {
+          padding-bottom: 1rem;
+          height: 200px;
+          width: 200px;
+          object-fit: contain;
+        }
+        p {
+          font-size: 1rem;
+        }
+      }
+      .button-container {
+        margin-top: 5px;
+        .add,
+        .remove {
+          button {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+
 .Comp {
+  .comp-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+
+    .hero-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .hero {
+        transition: ease-in-out 0.4s;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        background: linear-gradient(
+          180deg,
+          rgba(189, 25, 10, 1) 0%,
+          rgba(189, 25, 10, 0) 85%
+        );
+        border-top: 5px solid black;
+        border-radius: 2px;
+
+        img {
+        }
+        h5 {
+          color: #686868;
+          margin: 0;
+          padding: 0;
+          font-size: 1.2rem;
+        }
+        p {
+          color: $light;
+          text-align: center;
+          margin: 0;
+          padding: 0;
+        }
+
+        .text {
+          color: #000;
+          text-align: center;
+          width: 100%;
+          padding: 50% 5% 0% 5%;
+        }
+      }
+      .button-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        .add,
+        .remove {
+          button {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
 }
