@@ -10,7 +10,7 @@ function Home() {
             <Col className='home-col'>
                 <img />
                 <h2>DD Comp Builder</h2>
-                <p>Learn more about your heroes statistics and plan your fights!</p>
+                <p>Learn more about your heroes and plan your fights!</p>
             </Col>
         </Row>
     </div>);

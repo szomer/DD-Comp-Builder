@@ -3,6 +3,7 @@
 .Home {
   height: 100%;
   overflow: hidden;
+  animation: fadein 1s;
 
   .home-bg-filter {
     position: absolute;
@@ -36,7 +37,7 @@
         object-fit: contain;
         margin-bottom: 1rem;
         @media (max-width: 699px) {
-          content: (url('./home_bg_mobile.jpg'));
+          content: (url('./home_bg_mobile.png'));
         }
         @media (min-width: 700px) {
           content: url('./home_bg.jpg');
@@ -52,7 +53,8 @@
       p {
         color: $orange;
         padding: 0;
-        margin: 0;
+        margin: 0 3rem;
+        text-align: center;
       }
     }
   }

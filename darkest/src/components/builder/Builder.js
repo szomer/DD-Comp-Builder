@@ -94,9 +94,8 @@ function Builder(props) {
         </div>
 
         <div className="hero-stats-container">
-            {hero.name ?
-                <h2>{hero.name}</h2> :
-                <h2>Start by selecting a Hero!</h2>
+            {hero.name &&
+                <h2>{hero.name}</h2>
             }
             {abilities.a1 && resistances.bleed &&
                 <div className='stats-container'>
