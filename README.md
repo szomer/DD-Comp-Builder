@@ -2,6 +2,9 @@
 
 Web application to build combat compositions for battles and view the statistics of each hero of the game: Darkest Dungeon.
 
+- 18 Heroes, each with base stats(resolve level 1 to 5), resistances, and abilities.
+- Icons, animated combat gifs, and large images for each hero.
+
 **Technologies used**:
 
 - React front end
