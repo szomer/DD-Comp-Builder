@@ -88,6 +88,7 @@ function Builder(props) {
     return (<div className="Builder">
         <div className="builder-container">
             <h2>Build Your Composition</h2>
+            <p>Select a hero and click on the add icon to position.</p>
             {currentHeroes &&
                 <Comp heroAdd={heroAdd} heroRemove={heroRemove} currentHeroes={currentHeroes} />
             }

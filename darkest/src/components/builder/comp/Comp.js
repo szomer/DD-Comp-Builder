@@ -21,7 +21,7 @@ function Comp(props) {
                     </div>
                     <div className='button-container'>
                         <div className='add'>
-                            <button onClick={() => { props.heroAdd(0, currentHeroes[0].id) }} className='btn btn-dark'>+</button>
+                            <button onClick={() => { props.heroAdd(0, currentHeroes[0].id) }} className='btn btn-light'>+</button>
                         </div>
                         {currentHeroes[0].id &&
                             <div className='remove'>
@@ -45,7 +45,7 @@ function Comp(props) {
                     </div>
                     <div className='button-container'>
                         <div className='add'>
-                            <button onClick={() => { props.heroAdd(1, currentHeroes[1].id) }} className='btn btn-dark'>+</button>
+                            <button onClick={() => { props.heroAdd(1, currentHeroes[1].id) }} className='btn btn-light'>+</button>
                         </div>
                         {currentHeroes[1].id &&
                             <div className='remove'>
@@ -69,7 +69,7 @@ function Comp(props) {
                     </div>
                     <div className='button-container'>
                         <div className='add'>
-                            <button onClick={() => { props.heroAdd(2, currentHeroes[2].id) }} className='btn btn-dark'>+</button>
+                            <button onClick={() => { props.heroAdd(2, currentHeroes[2].id) }} className='btn btn-light'>+</button>
                         </div>
                         {currentHeroes[2].id &&
                             <div className='remove'>
@@ -92,7 +92,7 @@ function Comp(props) {
                     </div>
                     <div className='button-container'>
                         <div className='add'>
-                            <button onClick={() => { props.heroAdd(3, currentHeroes[3].id) }} className='btn btn-dark'>+</button>
+                            <button onClick={() => { props.heroAdd(3, currentHeroes[3].id) }} className='btn btn-light'>+</button>
                         </div>
                         {currentHeroes[3].id &&
                             <div className='remove'>

@@ -16,7 +16,7 @@ function Header() {
 
                     </div>
                     <Nav >
-                        <Nav.Link as={Link} to="/builder">Comp Builder</Nav.Link>
+                        <Nav.Link as={Link} to="/builder">Builder</Nav.Link>
                         <Nav.Link as={Link} to="/stats">Heroes</Nav.Link>
                         <Nav.Link as={Link} to="/about">More</Nav.Link>
 

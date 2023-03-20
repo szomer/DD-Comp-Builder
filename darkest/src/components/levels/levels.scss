@@ -2,15 +2,24 @@
 
 .Levels {
   width: 360px;
+  th {
+    font-size: 1.1rem;
+    font-weight: normal;
+  }
+  td {
+    font-size: 0.9rem;
+  }
   td,
   th {
     color: $light;
     text-align: center;
-    font-size: 1rem;
     padding: 0.4rem 0.3rem;
   }
 
   .resolve {
-    margin-right: 0.3rem;
+    margin-right: 0.2rem;
+    font-size: 1.1rem;
+    font-weight: normal;
+    font-family: 'Germania One', cursive;
   }
 }

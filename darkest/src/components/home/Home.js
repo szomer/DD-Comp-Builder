@@ -13,7 +13,7 @@ function Home() {
                 <p>Learn more about your heroes and plan your fights!</p>
             </Col>
         </Row>
-    </div>);
+    </div >);
 }
 
 export default Home;

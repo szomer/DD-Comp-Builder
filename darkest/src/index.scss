@@ -15,6 +15,17 @@ body,
   background-color: #000;
 }
 
+p {
+  font-family: 'Roboto', sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+th {
+  font-family: 'Germania One', cursive;
+}
+
 @keyframes fadein {
   0% {
     opacity: 0;

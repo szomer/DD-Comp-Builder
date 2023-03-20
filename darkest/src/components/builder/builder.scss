@@ -4,7 +4,7 @@
   .Builder {
     h2 {
       font-size: 1.3rem;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0rem;
     }
     .stats-container {
       display: flex;
@@ -16,7 +16,6 @@
 
       h2 {
         font-size: 1.3rem;
-        color: $orange;
       }
       .Abilities {
         margin-bottom: 10px;
@@ -29,9 +28,8 @@
   .Builder {
     h2 {
       font-size: 1.3rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0rem;
     }
-
     .stats-container {
       display: flex;
       flex-direction: row;
@@ -41,12 +39,11 @@
 
       h2 {
         font-size: 1.3rem;
-        color: $orange;
       }
 
       .Abilities {
         max-width: 480px;
-        height: 190px;
+        height: 180px;
         padding-right: 10px;
       }
     }
@@ -82,11 +79,15 @@
     flex-direction: column;
     justify-content: center;
     h2 {
-      font-size: 1.3rem;
+      padding-top: 0.5rem;
+      font-size: 1.4rem;
     }
-  }
-
-  .heroes-list-container {
+    p {
+      padding: 0;
+      margin: 0;
+      font-size: 0.8rem;
+      color: #686868;
+    }
   }
 
   .hero-stats-container {
@@ -94,5 +95,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    h2 {
+      margin-top: 0.4rem;
+      color: $orange;
+      font-size: 1.4rem;
+    }
   }
 }

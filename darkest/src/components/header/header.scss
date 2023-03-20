@@ -15,3 +15,21 @@
     background-color: black;
   }
 }
+
+a.nav-link {
+  color: $light;
+  font-family: 'Germania One', cursive;
+  font-size: 1.1rem;
+  &:hover {
+    color: $orange;
+  }
+}
+
+a.navbar-brand {
+  color: $orange;
+  font-family: 'Germania One', cursive;
+  font-size: 1.3rem;
+  &:hover {
+    color: $light;
+  }
+}
